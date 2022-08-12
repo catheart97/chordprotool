@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+    <title>ChordProTool</title>
+
+    <base href="./">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <div class="navbar-brand">ChordProTool</div>
+    </nav>
+
+    <div class="d-flex align-items-start flex-column bd-highlight mb-3" style="height: 100%;">
+        <div class="mb-auto p-2 bd-highlight" style="width: 96vw; align-self: center; margin: 0!important;">
+            <div class="container" style="left: 0; right: 0; padding: 0; margin: 0; height: 100%;">
+                <div class="row" style="height: 100%; width:96vw">
+                    <div class="col" id="codecol" style="height: 100%;">
+                        <div id="code" class="code"></div>
+                    </div>
+                    <div class="col">
+                        <div class="row align-items-center justify-content-md-center" style="height: 100%; width: 100%">
+                            <div class="sheetview" id="sheetview" style="padding: 0; margin: 0; height: 100%; width: 100%; overflow: hidden;">
+                                <div class="col">
+                                    <div class="card">
+                                        <div style="margin: 30px">
+                                            <img src="node_modules/bootstrap-icons/icons/info-circle.svg" alt=""
+                                                width="64" height="64" />
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Render</h5>
+                                            <p class="card-text">The processed result will be shown here.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 bd-highlight" style="width: 98vw; padding: 0px; margin: 0px; align-self: baseline; margin-top: auto!important;">
+            <div class="d-flex bd-highlight mb-3" style="margin: 0px!important; padding: 0px;">
+                <div class="p-2 bd-highlight btn-toolbar" role="toolbar" style="padding:0px; max-height: 38px;">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" id="btnGroupAddon">
+                                <img src="node_modules/bootstrap-icons/icons/file-code.svg" width="16" height="16" />
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Songtitle" id="songtitle"
+                            aria-describedby="btnGroupAddon">
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-secondary" onclick="open_file()">Open</button>
+                        <button type="button" class="btn btn-secondary" onclick="save_file()">Save</button>
+                    </div>
+                </div>                
+                <div class=" p-2 bd-highlight">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Transpose</span>
+                          <div class="input-group-text">
+                            #<div style="margin-left: 5px;"></div>
+                            <input type="checkbox" id="withsharp" aria-label="#">
+                          </div>
+                        </div>
+                        <input type="text" id="steps" class="form-control" aria-label="Steps" value="0">
+                      </div>
+
+
+                </div>
+                <div class=" ml-auto p-2 bd-highlight"><button type="button" class="btn btn-success"
+                    onclick="process()">Compile</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+
+    <script>
+        if (typeof module === 'object') { window.module = module; module = undefined; }
+    </script>
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="pdfobject.js"></script>
+</body>
+
+</html>
